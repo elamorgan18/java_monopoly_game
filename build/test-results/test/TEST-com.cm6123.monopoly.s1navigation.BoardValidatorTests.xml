@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cm6123.monopoly.s1navigation.BoardValidatorTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-05-01T13:32:04" hostname="Elas-MacBook-Air-5.local" time="0.004">
+  <properties/>
+  <testcase name="testInvalidInputs()" classname="com.cm6123.monopoly.s1navigation.BoardValidatorTests" time="0.004"/>
+  <testcase name="testValidInputs()" classname="com.cm6123.monopoly.s1navigation.BoardValidatorTests" time="0.0"/>
+  <system-out><![CDATA[Board size must be an integer. Please try again.
+Board size must be an integer. Please try again.
+Board size must be an integer. Please try again.
+Size of board must be between 10 and 50. Please try again.
+Size of board must be between 10 and 50. Please try again.
+Board size must be an integer. Please try again.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

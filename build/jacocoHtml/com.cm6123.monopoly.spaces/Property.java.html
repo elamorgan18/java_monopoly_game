@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Property.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.spaces</a> &gt; <span class="el_source">Property.java</span></div><h1>Property.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.spaces;
+
+import com.cm6123.monopoly.players.Player;
+
+import java.math.BigDecimal;
+
+public class Property extends Space {
+
+
+    /**
+     * An instance that declares if the property is owned or not.
+     */
+<span class="fc" id="L13">    private boolean isOwned = false;</span>
+
+    /**
+     * An instance that declares who the owner of the property is.
+     */
+    private Player owner;
+
+    /**
+     * A constructor for the property space.
+     * @param theCharge the charge they will recieve.
+     * @param thePosition the position they land on.
+     * @param theIsOwned is the porperty owned or not.
+     * @param theName the name of the property.
+     */
+    public Property(final BigDecimal theCharge, final int thePosition, final boolean theIsOwned, final String theName) {
+<span class="fc" id="L28">        super(theCharge, thePosition, SpaceType.PROPERTY, theName);</span>
+<span class="fc" id="L29">        this.isOwned = theIsOwned;</span>
+        // when we create the property, it doesn't have an owner
+<span class="fc" id="L31">        this.owner = null;</span>
+<span class="fc" id="L32">    }</span>
+
+    /**
+     * A method that sees if property is owned or not.
+     * @return if property is owned or not boolean.
+     */
+    public boolean isOwned() {
+<span class="fc" id="L39">        return isOwned;</span>
+    }
+    /**
+     * A method that sets the isOwned to either true or false.
+     * @param owned
+     */
+    public void setOwned(final boolean owned) {
+<span class="fc" id="L46">        isOwned = owned;</span>
+<span class="fc" id="L47">    }</span>
+
+    /**
+     * A method that gets the owner of the property.
+     * @return owner of the property.
+     */
+    public Player getOwner() {
+<span class="fc" id="L54">        return owner;</span>
+    }
+
+    /**
+     * A method that sets the owner of the property.
+     * @param theOwner
+     */
+    public void setOwner(final Player theOwner) {
+<span class="fc" id="L62">        this.owner = theOwner;</span>
+<span class="fc" id="L63">    }</span>
+
+    /**
+     * An override that gives a string of the porperty name and charge.
+     * @return
+     */
+    @Override
+    public String toString() {
+<span class="nc" id="L71">        return this.getName() + &quot; Cost: £&quot; + this.getCharge();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

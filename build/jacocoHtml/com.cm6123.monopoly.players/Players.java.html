@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Players.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.players</a> &gt; <span class="el_source">Players.java</span></div><h1>Players.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.players;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * A class that stores the players.
+ */
+public class Players {
+
+    /**
+     * A list containing all the players in the game.
+     * This list is final and initialised once to ensure immutability.
+     */
+    private final List&lt;Player&gt; playerList;
+
+    /**
+     * A method that constructs a Players object and initializes the player list with the specified number of players.
+     * Each player is created with an initial position of 1 and a unique player ID.
+     *
+     * @param numberOfPlayers The number of players to be added to the game.
+     */
+<span class="fc" id="L25">    public Players(final int numberOfPlayers) {</span>
+<span class="fc" id="L26">        playerList = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        for (int i = 1; i &lt;= numberOfPlayers; i++) {</span>
+<span class="fc" id="L28">            playerList.add(new Player(1, i, BigDecimal.valueOf(1000.00).setScale(2, RoundingMode.HALF_UP), 1));</span>
+        }
+<span class="fc" id="L30">    }</span>
+
+    /**
+     * A method that eturns the list of players in the game.
+     *
+     * @return A list containing all the players.
+     */
+    public List&lt;Player&gt; getPlayerList() {
+<span class="fc" id="L38">        return playerList;</span>
+    }
+
+    /**
+     * A method that prints the details of all players in the game, including
+     * their player ID, last roll, position and balance.
+     */
+    public void printPlayers() {
+<span class="fc" id="L46">        System.out.println(&quot;---------------------------------------------------------------&quot;);</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">        for (Player player : playerList) {</span>
+<span class="fc" id="L48">            System.out.println(&quot;Player &quot; + player.getPlayerId()</span>
+<span class="fc" id="L49">                    + &quot; rolled a &quot; + player.getLastRoll()</span>
+<span class="fc" id="L50">                    + &quot;, has position: &quot; + player.getPosition()</span>
+<span class="fc" id="L51">                     + &quot; and balance: &quot; + player.getBalance()</span>
+<span class="fc" id="L52">                    + &quot; and owned properties are: &quot; + player.getOwnedProperties());</span>
+<span class="fc" id="L53">        }</span>
+<span class="fc" id="L54">        System.out.println(&quot;---------------------------------------------------------------&quot;);</span>
+<span class="fc" id="L55">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

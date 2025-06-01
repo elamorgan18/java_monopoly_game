@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BoardValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.board</a> &gt; <span class="el_source">BoardValidator.java</span></div><h1>BoardValidator.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.board;
+
+import com.cm6123.monopoly.validator.InputValidator;
+
+
+/**
+ * A class that validates the board size input.
+ */
+<span class="fc" id="L9">public class BoardValidator implements InputValidator {</span>
+
+    /**
+     * A method to check that the board size is an integer and is between 10 and 50.
+     *
+     * @param sizeOfBoard - The size of the board that the user wants to play with.
+     * @return a boolean to see if number is valid.
+     */
+    public boolean validate(final String sizeOfBoard) {
+<span class="fc" id="L18">        boolean isValid = false;</span>
+<span class="fc" id="L19">        int boardSize = 0;</span>
+
+        // Converting the input to an int.
+
+        try {
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            if (sizeOfBoard != null) {</span>
+<span class="fc" id="L25">                boardSize = Integer.parseInt(sizeOfBoard.trim());</span>
+<span class="fc" id="L26">                isValid = true;</span>
+            }
+<span class="fc" id="L28">        } catch (NumberFormatException e) {</span>
+<span class="fc" id="L29">            System.out.println(&quot;Board size must be an integer. Please try again.&quot;);</span>
+<span class="fc" id="L30">            isValid = false;</span>
+<span class="fc" id="L31">        }</span>
+
+        // Checking if the input is between 10 and 50.
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (isValid) {</span>
+<span class="fc bfc" id="L35" title="All 4 branches covered.">            if (boardSize &lt; 10 || boardSize &gt; 50) {</span>
+<span class="fc" id="L36">                isValid = false;</span>
+<span class="fc" id="L37">                System.out.println(&quot;Size of board must be between 10 and 50. Please try again.&quot;);</span>
+            }
+        }
+<span class="fc" id="L40">        return isValid;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

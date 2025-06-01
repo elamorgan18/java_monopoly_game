@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cm6123.monopoly.s2congestion.GameControllerTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-05-01T13:32:05" hostname="Elas-MacBook-Air-5.local" time="0.013">
+  <properties/>
+  <testcase name="testCongestionChargeMoveIntoAndStayInCongestionZone()" classname="com.cm6123.monopoly.s2congestion.GameControllerTests" time="0.001"/>
+  <testcase name="testCongestionChargeMoveIntoButStayOutOfCongestionZone()" classname="com.cm6123.monopoly.s2congestion.GameControllerTests" time="0.001"/>
+  <testcase name="[1] 10, 1, 200.00, 0.00, 10" classname="com.cm6123.monopoly.s2congestion.GameControllerTests" time="0.001"/>
+  <testcase name="[2] 6, 7, 0.00, 0.00, 50" classname="com.cm6123.monopoly.s2congestion.GameControllerTests" time="0.002"/>
+  <testcase name="[3] 4, 5, 0.00, 40.00, 10" classname="com.cm6123.monopoly.s2congestion.GameControllerTests" time="0.001"/>
+  <testcase name="[4] 12, 13, 0.00, 120.00, 25" classname="com.cm6123.monopoly.s2congestion.GameControllerTests" time="0.0"/>
+  <testcase name="testCongestionChargeNeverInCongestionZone()" classname="com.cm6123.monopoly.s2congestion.GameControllerTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

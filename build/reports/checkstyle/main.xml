@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<checkstyle version="10.21.2">
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/validator/InputValidator.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/validator/package-info.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/app/Application.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/app/package-info.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/board/BoardValidator.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/board/Board.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/board/package-info.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/players/Players.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/players/PlayerValidator.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/players/Player.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/players/package-info.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/Court.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/Property.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/SpaceType.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/Road.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/SpaceHelper.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/AvailableProperty.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/Congestion.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/Space.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/spaces/package-info.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/dice/Dice.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/dice/DiceSet.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/dice/package-info.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/game/GameController.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/game/SpaceManager.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/game/CongestionManager.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/game/CourtManager.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/game/Welcome.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/game/PropertyManager.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/game/package-info.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/rounds/RoundValidator.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/rounds/Rounds.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/rounds/package-info.java">
+</file>
+<file name="/Users/elamorgan/Documents/Year 1 Assessments/Monopoly_assessment/src/main/java/com/cm6123/monopoly/package-info.java">
+</file>
+</checkstyle>

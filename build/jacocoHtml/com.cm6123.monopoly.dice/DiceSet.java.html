@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DiceSet.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.dice</a> &gt; <span class="el_source">DiceSet.java</span></div><h1>DiceSet.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.dice;
+
+public class DiceSet {
+    /**
+     * The first dice instance.
+     */
+    private final Dice die1;
+    /**
+     * The second dice instance.
+     */
+    private final Dice die2;
+
+    /**
+     * Method that constructs a set with exactly two dice, each having the given number of faces.
+     *
+     * @param numberOfFaces the number of faces on each die.
+     */
+<span class="fc" id="L18">    public DiceSet(final Integer numberOfFaces) {</span>
+<span class="fc" id="L19">        this.die1 = new Dice(numberOfFaces);</span>
+<span class="fc" id="L20">        this.die2 = new Dice(numberOfFaces);</span>
+<span class="fc" id="L21">    }</span>
+
+    /**
+     * Method that constructs each die.
+     *
+     * @param dice1 the die 1 value.
+     * @param dice2 the die 2 value.
+     */
+<span class="fc" id="L29">    public DiceSet(final Dice dice1, final Dice dice2) {</span>
+<span class="fc" id="L30">        this.die1 = dice1;</span>
+<span class="fc" id="L31">        this.die2 = dice2;</span>
+<span class="fc" id="L32">    }</span>
+    /**
+     * A method that rolls both dice and adds their results together.
+     *
+     * @return the sum of both dice rolls.
+     */
+    public int addTogether() {
+<span class="fc" id="L39">        int totalRoll =  die1.roll() + die2.roll();</span>
+<span class="fc" id="L40">        return totalRoll;</span>
+    }
+
+    /**
+     * A method that gets the die 1 value.
+     *
+     * @return the die 1 value.
+     */
+    public Dice getDie1() {
+<span class="fc" id="L49">        return die1;</span>
+    }
+    /**
+     * A method that gets the die 2 value.
+     *
+     * @return the die 2 value.
+     */
+    public Dice getDie2() {
+<span class="fc" id="L57">        return die2;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

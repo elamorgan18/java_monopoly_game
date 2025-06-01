@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Players.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.cm6123.monopoly.players;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.math.BigDecimal;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.math.RoundingMode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A class that stores the players.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Players {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A list containing all the players in the game.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * This list is final and initialised once to ensure immutability.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Player&#62; playerList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that constructs a Players object and initializes the player list with the specified number of players.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Each player is created with an initial position of 1 and a unique player ID.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param numberOfPlayers The number of players to be added to the game.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Players(final int numberOfPlayers) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        playerList = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_27'/>
+27
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_27'>2</a>
+<span>
+1. &#60;init&#62; : changed conditional boundary &rarr; KILLED<br/>
+2. &#60;init&#62; : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        for (int i = 1; i &#60;= numberOfPlayers; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            playerList.add(new Player(1, i, BigDecimal.valueOf(1000.00).setScale(2, RoundingMode.HALF_UP), 1));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that eturns the list of players in the game.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return A list containing all the players.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;Player&#62; getPlayerList() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_38'/>
+38
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_38'>1</a>
+<span>
+1. getPlayerList : replaced return value with Collections.emptyList for com/cm6123/monopoly/players/Players::getPlayerList &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return playerList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that prints the details of all players in the game, including</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * their player ID, last roll, position and balance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void printPlayers() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_46'/>
+46
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_46'>1</a>
+<span>
+1. printPlayers : removed call to java/io/PrintStream::println &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        System.out.println(&#34;---------------------------------------------------------------&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Player player : playerList) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_48'>1</a>
+<span>
+1. printPlayers : removed call to java/io/PrintStream::println &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            System.out.println(&#34;Player &#34; + player.getPlayerId()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    + &#34; rolled a &#34; + player.getLastRoll()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    + &#34;, has position: &#34; + player.getPosition()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                     + &#34; and balance: &#34; + player.getBalance()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    + &#34; and owned properties are: &#34; + player.getOwnedProperties());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_54'/>
+54
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_54'>1</a>
+<span>
+1. printPlayers : removed call to java/io/PrintStream::println &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        System.out.println(&#34;---------------------------------------------------------------&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@155d1021_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@155d1021_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_27'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#3]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>&#60;init&#62;<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#3]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@155d1021_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_38'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPlayerList<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#3]</span></span> replaced return value with Collections.emptyList for com/cm6123/monopoly/players/Players::getPlayerList &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@155d1021_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_46'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>printPlayers<br/><b>Killed by : </b>none</span></span> removed call to java/io/PrintStream::println &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@155d1021_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>printPlayers<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#9]</span></span> removed call to java/io/PrintStream::println &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@155d1021_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@155d1021_54'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>printPlayers<br/><b>Killed by : </b>none</span></span> removed call to java/io/PrintStream::println &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[method:testCongestionChargeMoveIntoButStayOutOfCongestionZone()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#9] (2 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#10] (2 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#1] (1 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#4] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#7] (4 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests]/[method:testProcessSpaceForPlayerMethodPlayerSellsTwoPropertiesToPayRent()] (1 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#2] (2 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#5] (2 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#3] (4 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#9] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethodWithOnlyOneActivePlayer(int, int, boolean)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s4purchase.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s4purchase.PropertyManagerTests]/[method:testProcessSpaceForPlayerPlayerCannotAffordProperty()] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests]/[method:testProcessSpaceForPlayerMethodPlayerBankruptAfterSellingAllProperties()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#8] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s3court.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.GameControllerTests]/[method:testCourtFreezePlayerStaysInSamePositionForTwoRounds()] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#8] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[method:testCongestionChargeMoveIntoAndStayInCongestionZone()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testCurrentRoundUpdatesAfterPlayersTurn(int, int, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s4purchase.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s4purchase.PropertyManagerTests]/[method:testProcessSpaceForPlayerDoesntBuyProperty()] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#8] (4 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#6] (3 ms)</li><li>com.cm6123.monopoly.s5rental.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s5rental.PropertyManagerTests]/[method:testProcessSpaceForPlayerPaysRentToOwner()] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#3] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#4] (3 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[method:testBankruptPlayerDoesNotMove()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#2] (11 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#1] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#8] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethodWithOnlyOneActivePlayer(int, int, boolean)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s4purchase.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s4purchase.PropertyManagerTests]/[method:testProcessSpaceForPlayerDoesBuyProperty()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#11] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#9] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[method:testCongestionChargeNeverInCongestionZone()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#9] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testCurrentRoundUpdatesAfterPlayersTurn(int, int, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testCurrentRoundUpdatesAfterPlayersTurn(int, int, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#1] (3 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#1] (22 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests]/[method:testProcessSpaceForPlayerMethodPlayerSellsPropertyAndPaysRent()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#3] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.14.4
+
+</body>
+</html>

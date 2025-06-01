@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cm6123.monopoly.s1navigation.PlayerValidatorTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-05-01T13:32:05" hostname="Elas-MacBook-Air-5.local" time="0.002">
+  <properties/>
+  <testcase name="testInvalidInputs()" classname="com.cm6123.monopoly.s1navigation.PlayerValidatorTests" time="0.0"/>
+  <testcase name="testValidInputs()" classname="com.cm6123.monopoly.s1navigation.PlayerValidatorTests" time="0.001"/>
+  <system-out><![CDATA[Number of players must be an integer. Please try again.
+Number of players must be an integer. Please try again.
+Number of players must be an integer. Please try again.
+Number of players must be between 2 and 10. Please try again.
+Number of players must be between 2 and 10. Please try again.
+Number of players must be an integer. Please try again.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

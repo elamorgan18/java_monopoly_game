@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Board.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.board</a> &gt; <span class="el_source">Board.java</span></div><h1>Board.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.board;
+
+
+import com.cm6123.monopoly.spaces.Space;
+import com.cm6123.monopoly.spaces.SpaceHelper;
+import com.cm6123.monopoly.spaces.Congestion;
+import com.cm6123.monopoly.spaces.Road;
+import com.cm6123.monopoly.spaces.Court;
+import com.cm6123.monopoly.spaces.Property;
+import com.cm6123.monopoly.spaces.AvailableProperty;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * A class that stores all board information.
+ */
+public class Board {
+
+    /**
+     * An instance variable to store the size of the board.
+     */
+    private final int boardSize;
+
+    /**
+     * An instance variable to store the spaces.
+     */
+    private List&lt;Space&gt; spaces;
+
+    /**
+     * An instance of the spaceHelper.
+     */
+    private final SpaceHelper spaceHelper;
+    /**
+     * A constructor for the board.
+     *
+     * @param sizeOfboard the size of the board.
+     * @param theSpaceHelper the space helper.
+     */
+<span class="fc" id="L41">    public Board(final int sizeOfboard, final SpaceHelper theSpaceHelper) {</span>
+<span class="fc" id="L42">        this.boardSize = sizeOfboard;</span>
+<span class="fc" id="L43">        this.spaceHelper = theSpaceHelper;</span>
+<span class="fc" id="L44">        this.spaces = createSpaces(sizeOfboard);</span>
+<span class="fc" id="L45">    }</span>
+    /**
+     * A constructor for the board.
+     * @param sizeOfboard the size of the board.
+     */
+<span class="fc" id="L50">    public Board(final int sizeOfboard) {</span>
+<span class="fc" id="L51">        this.boardSize = sizeOfboard;</span>
+<span class="fc" id="L52">        this.spaceHelper = new SpaceHelper();</span>
+<span class="fc" id="L53">        this.spaces = createSpaces(sizeOfboard);</span>
+<span class="fc" id="L54">    }</span>
+
+    /**
+     * A constructor for creating our own spaces so we can test it works.
+     * @param theSpaces the list of spaces we are using to test.
+     */
+    public void setSpaces(final List&lt;Space&gt; theSpaces) {
+<span class="fc" id="L61">        this.spaces = theSpaces;</span>
+<span class="fc" id="L62">    }</span>
+
+    /**
+     * A method to retrieve the size of the board.
+     *
+     * @return an integer of the size of the board.
+     */
+    public int getBoardSize() {
+<span class="fc" id="L70">        return boardSize;</span>
+    }
+
+    /**
+     * A method to find the middle of the board rounded up to the nearest whole number
+     * For example, input of 10 will return 5, input of 11 will return 6.
+     * @param theBoardSize
+     * @return middle of board value.
+     */
+    public int findMiddleOfBoard(final int theBoardSize) {
+<span class="fc" id="L80">        int middleOfBoard = (int) Math.ceil(theBoardSize / 2.0);</span>
+<span class="fc" id="L81">        return middleOfBoard;</span>
+    }
+
+    /**
+     * A method to create the spaces on the board.
+     * Assumption - the congestion is put in the middle of the board as a block of 5 spaces (board size between 10-30)
+     * and a block of 9 spaces if board size between 31 and 50. Only one block of congestion every time.
+     * We are also putting the Court at a random space that isn't congestion.
+     * @param theBoardSize
+     * @return spaces.
+     */
+    private List&lt;Space&gt; createSpaces(final int theBoardSize) {
+<span class="fc" id="L93">        int middleOfBoard = findMiddleOfBoard(theBoardSize);</span>
+
+<span class="fc" id="L95">        List&lt;Space&gt; theSpaces = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L96" title="All 2 branches covered.">        for (int i = 1; i &lt;= boardSize; i++) {</span>
+
+<span class="fc bfc" id="L98" title="All 2 branches covered.">            if (boardSize &lt;= 30) {</span>
+<span class="fc bfc" id="L99" title="All 4 branches covered.">                if (i &gt;= (middleOfBoard - 2) &amp;&amp; i &lt;= (middleOfBoard + 2)) {</span>
+<span class="fc" id="L100">                    Congestion congestion = new Congestion(BigDecimal.ZERO, i, &quot;Congestion&quot;);</span>
+<span class="fc" id="L101">                    theSpaces.add(congestion);</span>
+<span class="fc" id="L102">                } else {</span>
+<span class="fc" id="L103">                    Road road = new Road(BigDecimal.ZERO, i, &quot;Road&quot;);</span>
+<span class="fc" id="L104">                    theSpaces.add(road);</span>
+<span class="fc" id="L105">                }</span>
+            } else {// boardSize &gt; 30
+<span class="fc bfc" id="L107" title="All 4 branches covered.">                if (i &gt;= (middleOfBoard - 4) &amp;&amp; i &lt;= (middleOfBoard + 4)) {</span>
+<span class="fc" id="L108">                    Congestion congestion = new Congestion(BigDecimal.ZERO, i, &quot;Congestion&quot;);</span>
+<span class="fc" id="L109">                    theSpaces.add(congestion);</span>
+<span class="fc" id="L110">                } else {</span>
+<span class="fc" id="L111">                    Road road = new Road(BigDecimal.ZERO, i, &quot;Road&quot;);</span>
+<span class="fc" id="L112">                    theSpaces.add(road);</span>
+                }
+            }
+
+        }  // here we have a board created with Roads and Congestion
+
+        // add the court
+<span class="fc" id="L119">        addCourtToSpaces(theSpaces);</span>
+
+        // add properties to spaces
+<span class="fc" id="L122">        addPropertiesToSpaces(theSpaces);</span>
+
+
+<span class="fc" id="L125">        return theSpaces;</span>
+    }
+
+    /**
+     * A method that adds the court to a space.
+     * We are calling a method from SpaceHelper class which makes sure it's not a congestion space.
+     * @param theSpaces list of the spaces.
+     */
+    private void addCourtToSpaces(final List&lt;Space&gt; theSpaces) {
+<span class="fc" id="L134">        int positionOfRandomRoadSpace = spaceHelper.getRandomRoadSpacePosition(theSpaces);</span>
+<span class="fc" id="L135">        Court court = new Court(BigDecimal.valueOf(0), positionOfRandomRoadSpace, &quot;Crown Court&quot;);</span>
+<span class="fc" id="L136">        theSpaces.set(positionOfRandomRoadSpace - 1, court);</span>
+<span class="fc" id="L137">    }</span>
+
+    /**
+     * A method that adds the properties to a space.
+     * We are calling a method from SpaceHelper class which makes sure it's not a congestion space or a court.
+     * @param theSpaces list of the spaces.
+     */
+    private void addPropertiesToSpaces(final List&lt;Space&gt; theSpaces) {
+<span class="fc" id="L145">        int numberOfProperties = 0;</span>
+
+
+<span class="pc bpc" id="L148" title="1 of 4 branches missed.">        if (theSpaces.size() &gt;= 10 &amp;&amp; theSpaces.size() &lt;= 15) {</span>
+<span class="fc" id="L149">            numberOfProperties = 3;</span>
+<span class="pc bpc" id="L150" title="1 of 4 branches missed.">        } else if (theSpaces.size() &gt;= 16 &amp;&amp; theSpaces.size() &lt;= 30) {</span>
+<span class="fc" id="L151">            numberOfProperties = 5;</span>
+        } else {
+<span class="fc" id="L153">            numberOfProperties = 8;</span>
+        }
+
+<span class="fc" id="L156">        List&lt;AvailableProperty&gt; availableProperties = new ArrayList&lt;&gt;();</span>
+
+        // making properties with charge and names
+<span class="fc" id="L159">        availableProperties.add(new AvailableProperty(&quot;Old Kent Road&quot;, BigDecimal.valueOf(500)));</span>
+<span class="fc" id="L160">        availableProperties.add(new AvailableProperty(&quot;Pall Mall&quot;, BigDecimal.valueOf(200)));</span>
+<span class="fc" id="L161">        availableProperties.add(new AvailableProperty(&quot;The Strand&quot;, BigDecimal.valueOf(345)));</span>
+<span class="fc" id="L162">        availableProperties.add(new AvailableProperty(&quot;Leicester Square&quot;, BigDecimal.valueOf(450)));</span>
+<span class="fc" id="L163">        availableProperties.add(new AvailableProperty(&quot;Park Lane&quot;, BigDecimal.valueOf(250)));</span>
+<span class="fc" id="L164">        availableProperties.add(new AvailableProperty(&quot;Ritz&quot;, BigDecimal.valueOf(300)));</span>
+<span class="fc" id="L165">        availableProperties.add(new AvailableProperty(&quot;Mayflower&quot;, BigDecimal.valueOf(350)));</span>
+<span class="fc" id="L166">        availableProperties.add(new AvailableProperty(&quot;Chippy Lane&quot;, BigDecimal.valueOf(100)));</span>
+
+
+<span class="fc bfc" id="L169" title="All 2 branches covered.">        for (int i = 0; i &lt; numberOfProperties; i++) {</span>
+<span class="fc" id="L170">            int positionOfRandomRoadSpace = spaceHelper.getRandomRoadSpacePosition(theSpaces);</span>
+<span class="fc" id="L171">            AvailableProperty availableProperty = availableProperties.get(i);</span>
+<span class="fc" id="L172">            Property property = new Property(availableProperty.getPrice(), positionOfRandomRoadSpace, false, availableProperty.getName());</span>
+<span class="fc" id="L173">            theSpaces.set(positionOfRandomRoadSpace - 1, property);</span>
+        }
+<span class="fc" id="L175">    }</span>
+
+    /**
+     * A method to retrieve the list of spaces on the board.
+     * @return a list of Space objects.
+     */
+    public List&lt;Space&gt; getSpaces() {
+<span class="fc" id="L182">        return spaces;</span>
+    }
+    /**
+     * A method to print the board and its space type.
+     * @return the string containing space, charge and type.
+     */
+    public String printBoard() {
+<span class="fc" id="L189">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L190" title="All 2 branches covered.">        for (Space space : spaces) {</span>
+
+<span class="fc" id="L192">            String chargeToPrint = &quot;&quot;;</span>
+
+<span class="fc bfc" id="L194" title="All 2 branches covered.">            if (space instanceof Road) {</span>
+<span class="fc" id="L195">                chargeToPrint = &quot;, No Charges&quot;;</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">            } else if (space instanceof Court) {</span>
+<span class="fc" id="L197">                chargeToPrint = &quot;, Bonus: £100&quot;;</span>
+<span class="fc bfc" id="L198" title="All 2 branches covered.">            } else if (space instanceof Congestion) {</span>
+<span class="fc" id="L199">                chargeToPrint = &quot;, Charge: 10% of last roll&quot;;</span>
+            } else {
+<span class="fc" id="L201">                chargeToPrint = &quot;, Charge: £&quot; + space.getCharge().toString();</span>
+            }
+
+<span class="fc" id="L204">            sb.append(&quot;\nSpace: &quot; + space.getPosition()</span>
+<span class="fc" id="L205">                    + &quot; &quot; + space.getName() +  chargeToPrint);</span>
+<span class="fc" id="L206">        }</span>
+<span class="fc" id="L207">        return sb.toString();</span>
+    }
+
+    /**
+     * A method to print the board banner to display nicely.
+     * @return the print out of the banner.
+     */
+    public String printBoardBanner() {
+<span class="nc" id="L215">        String printOut = &quot;\n---------------------B O A R D---------------------&quot;;</span>
+<span class="nc" id="L216">        return printOut;</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

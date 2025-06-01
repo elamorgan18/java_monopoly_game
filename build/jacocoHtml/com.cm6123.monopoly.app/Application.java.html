@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Application.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.app</a> &gt; <span class="el_source">Application.java</span></div><h1>Application.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.app;
+
+import com.cm6123.monopoly.board.Board;
+import com.cm6123.monopoly.board.BoardValidator;
+import com.cm6123.monopoly.dice.DiceSet;
+import com.cm6123.monopoly.game.CongestionManager;
+import com.cm6123.monopoly.game.CourtManager;
+import com.cm6123.monopoly.game.PropertyManager;
+import com.cm6123.monopoly.game.SpaceManager;
+import com.cm6123.monopoly.game.GameController;
+import com.cm6123.monopoly.game.Welcome;
+import com.cm6123.monopoly.players.PlayerValidator;
+import com.cm6123.monopoly.players.Players;
+import com.cm6123.monopoly.rounds.RoundValidator;
+import com.cm6123.monopoly.rounds.Rounds;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Scanner;
+
+
+public final class Application {
+    /**
+     * Create a logger for the class.
+     */
+<span class="nc" id="L26">    private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);</span>
+
+    private Application() {
+    }
+
+    /**
+     * main entry point.  If args provided, result is displayed and program exists. Otherwise, user is prompted for
+     * input.
+     *
+     * @param args command line args.
+     */
+    public static void main(final String[] args) {
+<span class="nc" id="L38">        LOGGER.info(&quot;Application Started with args:{}&quot;, String.join(&quot;,&quot;, args));</span>
+
+<span class="nc" id="L40">        welcome();</span>
+<span class="nc" id="L41">        GameController gameController = initiateTheGame();</span>
+<span class="nc" id="L42">        playTheGame(gameController);</span>
+<span class="nc" id="L43">        declareTheWinner(gameController);</span>
+
+<span class="nc" id="L45">        LOGGER.info(&quot;Application closing&quot;);</span>
+<span class="nc" id="L46">    }</span>
+    /**
+     * A method that calls the welcome message.
+     */
+    private static void welcome() {
+
+        // Create a new instance of the Welcome class. This is an example of
+        // how the UI gives and takes information from the game.
+<span class="nc" id="L54">        Welcome welcome = new Welcome();</span>
+
+        // Print the welcome message to the console. The content comes from the game package.
+<span class="nc" id="L57">        System.out.println(welcome.welcomeMessage());</span>
+<span class="nc" id="L58">    }</span>
+    /**
+     * A method that initiates the game. Sets up the players, board and number of rounds.
+     * @return gameController which controls the game.
+     */
+    private static GameController initiateTheGame() {
+
+        // Get and validate the number of players.
+<span class="nc" id="L66">        int numOfPlayers = getAndValidateNumberOfPlayers();</span>
+
+        // Creating a List of players.
+<span class="nc" id="L69">        Players players = new Players(numOfPlayers);</span>
+
+        // Asking user for the size of gthe board.
+<span class="nc" id="L72">        int sizeOfBoard = getAndValidateSizeOfBoard();</span>
+
+<span class="nc" id="L74">        Board board = new Board(sizeOfBoard);</span>
+<span class="nc" id="L75">        System.out.println(board.printBoardBanner());</span>
+<span class="nc" id="L76">        System.out.println(board.printBoard());</span>
+<span class="nc" id="L77">        System.out.println(board.printBoardBanner());</span>
+
+
+        // Asking user for the number of rounds they want to play.
+<span class="nc" id="L81">        int numberOfRounds = getAndValidateNumberOfRounds();</span>
+
+<span class="nc" id="L83">        Rounds rounds = new Rounds(numberOfRounds);</span>
+<span class="nc" id="L84">        System.out.println(&quot;Number of rounds is: &quot; + numberOfRounds);</span>
+
+        // Starting Game.
+        // Note that we are setting the current round to one as it is the start of the game.
+<span class="nc" id="L88">        DiceSet diceSet = new DiceSet(6);</span>
+<span class="nc" id="L89">        CourtManager courtManager = new CourtManager();</span>
+<span class="nc" id="L90">        CongestionManager congestionManager = new CongestionManager();</span>
+<span class="nc" id="L91">        PropertyManager propertyManager = new PropertyManager();</span>
+<span class="nc" id="L92">        SpaceManager spaceManager = new SpaceManager(courtManager, congestionManager, propertyManager);</span>
+<span class="nc" id="L93">        GameController gameController = new GameController(players, board, rounds, 1, diceSet, spaceManager);</span>
+<span class="nc" id="L94">        return gameController;</span>
+    }
+    /**
+     * A method that start the game.
+     * @param gameController the game controller.
+     */
+    private static void playTheGame(final GameController gameController) {
+
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        while (gameController.shouldGameContinue()) {</span>
+
+<span class="nc" id="L104">            Scanner scanner = new Scanner(System.in);</span>
+<span class="nc" id="L105">            System.out.println(&quot;Would you like the game to continue? (Y/N)&quot;);</span>
+<span class="nc" id="L106">            String continueOrNot = scanner.nextLine().trim().toUpperCase();</span>
+
+<span class="nc bnc" id="L108" title="All 2 branches missed.">            if (continueOrNot.equals(&quot;Y&quot;)) {</span>
+<span class="nc" id="L109">                gameController.makeRoundOfMoves();</span>
+<span class="nc" id="L110">                gameController.getPlayers().printPlayers();</span>
+<span class="nc bnc" id="L111" title="All 2 branches missed.">            } else if (continueOrNot.equals(&quot;N&quot;)) {</span>
+<span class="nc" id="L112">                System.out.println(&quot;Game stopped by user.&quot;);</span>
+<span class="nc" id="L113">                break;</span>
+            } else {
+<span class="nc" id="L115">                System.out.println(&quot;Invalid input. Please try again.&quot;);</span>
+            }
+<span class="nc" id="L117">        }</span>
+<span class="nc" id="L118">    }</span>
+    private static void declareTheWinner(final GameController gameController) {
+        // declaring the winner of the game.
+<span class="nc" id="L121">        String resultOfGame = gameController.getWinner();</span>
+<span class="nc" id="L122">        System.out.println(&quot;\n************&quot;);</span>
+<span class="nc" id="L123">        System.out.println(&quot;** RESULT **&quot;);</span>
+<span class="nc" id="L124">        System.out.println(&quot;************&quot;);</span>
+<span class="nc" id="L125">        System.out.println(resultOfGame);</span>
+<span class="nc" id="L126">    }</span>
+    /**
+     * A method to get the number of players from the user and check that it is valid.
+     * @return an int of the number of players.
+     */
+    private static int getAndValidateNumberOfPlayers() {
+
+        // Creating boolean that controls the action of getting the number of players.
+<span class="nc" id="L134">        boolean isValidNumberOfPlayers = false;</span>
+<span class="nc" id="L135">        PlayerValidator playerValidator = new PlayerValidator();</span>
+<span class="nc" id="L136">        String numOfPlayers = &quot;&quot;;</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">        while (!isValidNumberOfPlayers) {</span>
+<span class="nc" id="L138">            System.out.println(&quot;Enter number of players. Between 2 and 10: &quot;);</span>
+<span class="nc" id="L139">            numOfPlayers = new Scanner(System.in).nextLine();</span>
+<span class="nc" id="L140">            isValidNumberOfPlayers = playerValidator.validate(numOfPlayers);</span>
+        }
+
+        // Convert the String to an int here. It's ok to do this as we have validated it above.
+<span class="nc" id="L144">        return Integer.parseInt(numOfPlayers);</span>
+    }
+
+    /**
+     * A method to get the size of the board check that it is valid.
+     * @return an int of the size of the board.
+     */
+    private static int getAndValidateSizeOfBoard() {
+<span class="nc" id="L152">        boolean isValidSizeOfBoard = false;</span>
+<span class="nc" id="L153">        BoardValidator boardValidator = new BoardValidator();</span>
+<span class="nc" id="L154">        String sizeOfBoard = &quot;&quot;;</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">        while (!isValidSizeOfBoard) {</span>
+<span class="nc" id="L156">            System.out.println(&quot;Enter size of board. Between 10 and 50: &quot;);</span>
+<span class="nc" id="L157">            sizeOfBoard = new Scanner(System.in).nextLine();</span>
+<span class="nc" id="L158">            isValidSizeOfBoard = boardValidator.validate(sizeOfBoard);</span>
+        }
+
+        // Convert the String to an int here. We know this is OK to do as we have validated it above.
+<span class="nc" id="L162">        return Integer.parseInt(sizeOfBoard);</span>
+    }
+
+    /**
+     * A method to get the number of rounds and check that it is valid.
+     * @return an int of the number of rounds.
+     */
+    private static int getAndValidateNumberOfRounds() {
+<span class="nc" id="L170">        boolean isValidNumberOfRounds = false;</span>
+<span class="nc" id="L171">        RoundValidator roundValidator = new RoundValidator();</span>
+<span class="nc" id="L172">        String numberOfRounds = &quot;&quot;;</span>
+<span class="nc bnc" id="L173" title="All 2 branches missed.">        while (!isValidNumberOfRounds) {</span>
+<span class="nc" id="L174">            System.out.println(&quot;\nEnter number of rounds. Between 1 and 20: &quot;);</span>
+<span class="nc" id="L175">            numberOfRounds = new Scanner(System.in).nextLine();</span>
+<span class="nc" id="L176">            isValidNumberOfRounds = roundValidator.validate(numberOfRounds);</span>
+        }
+<span class="nc" id="L178">        return Integer.parseInt(numberOfRounds);</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

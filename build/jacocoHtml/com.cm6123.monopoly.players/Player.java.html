@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Player.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.players</a> &gt; <span class="el_source">Player.java</span></div><h1>Player.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.players;
+
+import com.cm6123.monopoly.spaces.Property;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * A class that creates a single player.
+ */
+
+public class Player {
+    /**
+     * The player position.
+     */
+    private Integer position;
+    /**
+     * The player id.
+     */
+    private final Integer playerId;
+    /**
+     * The player balance.
+     */
+    private BigDecimal balance;
+
+    /**
+     * The players last roll value.
+     */
+    private Integer lastRoll;
+
+    /**
+     * The boolean which tells us if player has passed position 1.
+     */
+<span class="fc" id="L36">    private boolean passedPosition1 = false;</span>
+
+    /**
+     * The number of rounds to miss.
+     */
+<span class="fc" id="L41">    private Integer roundsToMiss = 0;</span>
+    /**
+     * List of owned properties the player has.
+     */
+    private final List&lt;Property&gt; ownedProperties;
+
+    /**
+     * Is the player bankrupt?
+     */
+<span class="fc" id="L50">    private boolean isBankrupt = false;</span>
+
+
+    /**
+     * Constructs a Player object with the specified position and player ID.
+     *
+     * @param playerPos The position of the player.
+     * @param playerIdentity The unique ID of the player.
+     * @param theBalance The balance of the player.
+     * @param theLastRoll The last roll number
+     */
+<span class="fc" id="L61">    public Player(final Integer playerPos, final Integer playerIdentity, final BigDecimal theBalance, final Integer theLastRoll) {</span>
+<span class="fc" id="L62">        this.position = playerPos;</span>
+<span class="fc" id="L63">        this.playerId = playerIdentity;</span>
+<span class="fc" id="L64">        this.balance = theBalance;</span>
+<span class="fc" id="L65">        this.lastRoll = theLastRoll;</span>
+<span class="fc" id="L66">        this.ownedProperties = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L67">    }</span>
+    /**
+     * A method that returns the player id.
+     *
+     * @return the player id.
+     */
+    public Integer getPlayerId() {
+<span class="fc" id="L74">        return playerId;</span>
+    }
+    /**
+     * A method that states if the player is bankrupt.
+     *
+     * @return boolean of true or false.
+     */
+    public boolean isBankrupt() {
+<span class="fc" id="L82">        return isBankrupt;</span>
+    }
+
+    /**
+     * A method that sets the players bankruptcy boolean.
+     *
+     * @param theBankrupt new player position.
+     */
+    public void setBankrupt(final boolean theBankrupt) {
+<span class="fc" id="L91">        isBankrupt = theBankrupt;</span>
+<span class="fc" id="L92">    }</span>
+    /**
+     * A method that returns the player position.
+     *
+     * @return the player position.
+     */
+    public Integer getPosition() {
+<span class="fc" id="L99">        return position;</span>
+    }
+
+    /**
+     * A method that sets a new position for a player.
+     *
+     * @param newPosition the new player position.
+     */
+    public void setPosition(final int newPosition) {
+<span class="fc" id="L108">        this.position = newPosition;</span>
+<span class="fc" id="L109">    }</span>
+
+    /**
+     * A method that returns the player balance.
+     *
+     * @return the player balance.
+     */
+    public BigDecimal getBalance() {
+<span class="fc" id="L117">        return balance.setScale(2, RoundingMode.HALF_UP);</span>
+    }
+
+    /**
+     * A method that sets a new balance for the player.
+     *
+     * @param newBalance the new player balance.
+     */
+    public void setBalance(final BigDecimal newBalance) {
+<span class="fc" id="L126">        this.balance = newBalance;</span>
+<span class="fc" id="L127">    }</span>
+
+    /**
+     * A method that sets the last roll of the player.
+     *
+     * @param newLastRoll the last roll value.
+     */
+    public void setLastRoll(final int newLastRoll) {
+<span class="fc" id="L135">        this.lastRoll = newLastRoll;</span>
+<span class="fc" id="L136">    }</span>
+
+    /**
+     * A method that returns the players last roll value.
+     *
+     * @return the players last roll value.
+     */
+    public Integer getLastRoll() {
+<span class="fc" id="L144">        return lastRoll;</span>
+    }
+
+    /**
+     * A method that returns the result of if player has passed position 1.
+     *
+     * @return if the player has passed position 1.
+     */
+    public boolean hasPassedPosition1() {
+<span class="fc" id="L153">        return passedPosition1;</span>
+    }
+
+    /**
+     * A method that sets if the player has passed position 1.
+     *
+     * @param thePassedPosition1 players passed position 1 or not.
+     */
+    public void setPassedPosition1(final boolean thePassedPosition1) {
+<span class="fc" id="L162">        this.passedPosition1 = thePassedPosition1;</span>
+<span class="fc" id="L163">    }</span>
+
+    /**
+     * A method gets the rounds the player will miss - frozen.
+     * @return roundsToMiss the rounds the miss.
+     */
+    public int getRoundsToMiss() {
+<span class="fc" id="L170">        return roundsToMiss;</span>
+    }
+
+    /**
+     * A method that sets the rounds to miss to a number.
+     * @param rounds the number of rounds to miss.
+     */
+    public void setRoundsToMiss(final int rounds) {
+<span class="fc" id="L178">        this.roundsToMiss = rounds;</span>
+<span class="fc" id="L179">    }</span>
+
+    /**
+     * A method that decreases the number of rounds to miss after a
+     * round has been missed.
+     */
+    public void decrementRoundsToMiss() {
+<span class="fc bfc" id="L186" title="All 2 branches covered.">        if (roundsToMiss &gt; 0) {</span>
+<span class="fc" id="L187">            roundsToMiss--;</span>
+        }
+<span class="fc" id="L189">    }</span>
+
+    /**
+     * A method that gets the owned properties.
+     * @return owned properties.
+     */
+    public List&lt;Property&gt; getOwnedProperties() {
+<span class="fc" id="L196">        return ownedProperties;</span>
+    }
+
+
+    /**
+     * A method that calculates the total rental income from all properties owned by the player.
+     * @param theOwnedProperties
+     * @return The total rental income.
+     */
+    public BigDecimal getTotalRentalIncome(final List&lt;Property&gt; theOwnedProperties) {
+<span class="fc" id="L206">        BigDecimal totalRent = BigDecimal.valueOf(0.00).setScale(2, RoundingMode.HALF_UP);</span>
+
+<span class="fc bfc" id="L208" title="All 2 branches covered.">        for (Property property : ownedProperties) {</span>
+<span class="fc" id="L209">            totalRent = totalRent.add(property.getCharge().multiply(BigDecimal.valueOf(0.1).setScale(2, RoundingMode.HALF_UP)));</span>
+<span class="fc" id="L210">        }</span>
+
+<span class="fc" id="L212">        return totalRent.setScale(2, RoundingMode.HALF_UP);</span>
+    }
+    /**
+     * A method that gets the cheapest property a player ownes and then
+     * halves the price and removes the property from the players list of properties.
+     * @param amount (this is the rent cost)
+     */
+    public void sellPropertiesToCoverDebt(final BigDecimal amount) {
+        // while the balance is less than amount (rent)  AND owned properties list is not empty
+<span class="fc bfc" id="L221" title="All 4 branches covered.">        while (balance.compareTo(amount) &lt; 0 &amp;&amp; !ownedProperties.isEmpty()) {</span>
+            // find the property with the lowest purchase price
+<span class="fc" id="L223">            Property cheapestProperty = ownedProperties.get(0);</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">            for (Property prop : ownedProperties) {</span>
+<span class="fc bfc" id="L225" title="All 2 branches covered.">                if (prop.getCharge().compareTo(cheapestProperty.getCharge()) &lt; 0) {</span>
+<span class="fc" id="L226">                    cheapestProperty = prop;</span>
+                }
+<span class="fc" id="L228">            }</span>
+
+            // sell it for 50% of its purchase price
+<span class="fc" id="L231">            BigDecimal salePrice = cheapestProperty.getCharge().multiply(BigDecimal.valueOf(0.5)).setScale(2, RoundingMode.HALF_UP);</span>
+<span class="fc" id="L232">            balance = balance.add(salePrice);</span>
+            // removing that property from their owned porperties list
+<span class="fc" id="L234">            ownedProperties.remove(cheapestProperty);</span>
+
+<span class="fc" id="L236">            System.out.println(&quot;Player &quot; + playerId + &quot; sold their property &quot; + cheapestProperty.getName()</span>
+<span class="fc" id="L237">                    + &quot; for £&quot; + salePrice + &quot; (50% of £&quot; + cheapestProperty.getCharge() + &quot;)&quot;);</span>
+
+<span class="fc" id="L239">        }</span>
+
+<span class="fc bfc" id="L241" title="All 2 branches covered.">        if (balance.compareTo(amount) &lt; 0) {</span>
+<span class="fc" id="L242">            System.out.println(&quot;Player &quot; + playerId + &quot; still cannot afford the debt and may go bankrupt.&quot;);</span>
+        } else {
+<span class="fc" id="L244">            System.out.println(&quot;Player &quot; + playerId + &quot; now has enough balance to cover the debt.&quot;);</span>
+        }
+<span class="fc" id="L246">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

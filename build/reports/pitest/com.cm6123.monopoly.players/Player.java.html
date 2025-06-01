@@ -1,0 +1,3965 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+</head>
+<body>
+
+
+<h1>Player.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_1'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package com.cm6123.monopoly.players;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_2'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_3'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import com.cm6123.monopoly.spaces.Property;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_4'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_5'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.math.BigDecimal;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_6'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.math.RoundingMode;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_7'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_8'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_9'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_10'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_11'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * A class that creates a single player.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_12'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_13'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_14'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class Player {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_15'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_16'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The player position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_17'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_18'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Integer position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_19'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_20'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The player id.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_21'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_22'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Integer playerId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_23'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_24'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The player balance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_25'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_26'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private BigDecimal balance;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_27'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_28'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_29'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The players last roll value.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_30'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_31'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private Integer lastRoll;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_32'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_33'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_34'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The boolean which tells us if player has passed position 1.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_35'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_36'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private boolean passedPosition1 = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_37'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_38'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_39'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * The number of rounds to miss.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_40'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_41'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private Integer roundsToMiss = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_42'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_43'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * List of owned properties the player has.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_44'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_45'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Property&#62; ownedProperties;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_46'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_47'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_48'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Is the player bankrupt?</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_49'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_50'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private boolean isBankrupt = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_51'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_52'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_53'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_54'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * Constructs a Player object with the specified position and player ID.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_55'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_56'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param playerPos The position of the player.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_57'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param playerIdentity The unique ID of the player.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_58'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param theBalance The balance of the player.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_59'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param theLastRoll The last roll number</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_60'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_61'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public Player(final Integer playerPos, final Integer playerIdentity, final BigDecimal theBalance, final Integer theLastRoll) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_62'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.position = playerPos;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_63'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.playerId = playerIdentity;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_64'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.balance = theBalance;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_65'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.lastRoll = theLastRoll;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_66'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.ownedProperties = new ArrayList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_67'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_68'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_69'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that returns the player id.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_70'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_71'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the player id.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_72'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_73'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Integer getPlayerId() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_74'/>
+74
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_74'>1</a>
+<span>
+1. getPlayerId : replaced Integer return value with 0 for com/cm6123/monopoly/players/Player::getPlayerId &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return playerId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_75'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_76'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_77'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that states if the player is bankrupt.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_78'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_79'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return boolean of true or false.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_80'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_81'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean isBankrupt() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_82'>2</a>
+<span>
+1. isBankrupt : replaced boolean return with true for com/cm6123/monopoly/players/Player::isBankrupt &rarr; KILLED<br/>
+2. isBankrupt : replaced boolean return with false for com/cm6123/monopoly/players/Player::isBankrupt &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return isBankrupt;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_83'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_84'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_85'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_86'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that sets the players bankruptcy boolean.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_87'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_88'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param theBankrupt new player position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_89'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_90'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setBankrupt(final boolean theBankrupt) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_91'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        isBankrupt = theBankrupt;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_92'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_93'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_94'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that returns the player position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_95'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_96'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the player position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_97'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_98'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Integer getPosition() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_99'/>
+99
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_99'>1</a>
+<span>
+1. getPosition : replaced Integer return value with 0 for com/cm6123/monopoly/players/Player::getPosition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_100'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_101'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_102'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_103'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that sets a new position for a player.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_104'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_105'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param newPosition the new player position.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_106'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_107'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setPosition(final int newPosition) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_108'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.position = newPosition;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_109'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_110'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_111'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_112'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that returns the player balance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_113'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_114'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the player balance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_115'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_116'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public BigDecimal getBalance() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_117'/>
+117
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_117'>1</a>
+<span>
+1. getBalance : replaced return value with null for com/cm6123/monopoly/players/Player::getBalance &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return balance.setScale(2, RoundingMode.HALF_UP);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_118'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_119'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_120'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_121'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that sets a new balance for the player.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_122'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_123'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param newBalance the new player balance.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_124'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_125'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setBalance(final BigDecimal newBalance) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_126'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.balance = newBalance;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_127'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_128'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_129'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_130'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that sets the last roll of the player.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_131'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_132'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param newLastRoll the last roll value.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_133'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_134'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setLastRoll(final int newLastRoll) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_135'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.lastRoll = newLastRoll;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_136'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_137'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_138'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_139'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that returns the players last roll value.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_140'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_141'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return the players last roll value.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_142'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_143'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Integer getLastRoll() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_144'/>
+144
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_144'>1</a>
+<span>
+1. getLastRoll : replaced Integer return value with 0 for com/cm6123/monopoly/players/Player::getLastRoll &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return lastRoll;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_145'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_146'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_147'/>
+147
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_147'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_148'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that returns the result of if player has passed position 1.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_149'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_150'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return if the player has passed position 1.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_151'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_152'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean hasPassedPosition1() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_153'/>
+153
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_153'>2</a>
+<span>
+1. hasPassedPosition1 : replaced boolean return with false for com/cm6123/monopoly/players/Player::hasPassedPosition1 &rarr; KILLED<br/>
+2. hasPassedPosition1 : replaced boolean return with true for com/cm6123/monopoly/players/Player::hasPassedPosition1 &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return passedPosition1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_154'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_155'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_156'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_157'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that sets if the player has passed position 1.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_158'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_159'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param thePassedPosition1 players passed position 1 or not.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_160'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_161'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setPassedPosition1(final boolean thePassedPosition1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_162'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.passedPosition1 = thePassedPosition1;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_163'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_164'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_165'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_166'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method gets the rounds the player will miss - frozen.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_167'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return roundsToMiss the rounds the miss.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_168'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_169'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getRoundsToMiss() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_170'/>
+170
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_170'>1</a>
+<span>
+1. getRoundsToMiss : replaced int return with 0 for com/cm6123/monopoly/players/Player::getRoundsToMiss &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return roundsToMiss;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_171'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_172'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_173'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_174'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that sets the rounds to miss to a number.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_175'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param rounds the number of rounds to miss.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_176'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_177'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setRoundsToMiss(final int rounds) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_178'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        this.roundsToMiss = rounds;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_179'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_180'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_181'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_182'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that decreases the number of rounds to miss after a</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_183'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * round has been missed.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_184'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_185'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void decrementRoundsToMiss() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_186'/>
+186
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_186'>2</a>
+<span>
+1. decrementRoundsToMiss : changed conditional boundary &rarr; KILLED<br/>
+2. decrementRoundsToMiss : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (roundsToMiss &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_187'/>
+187
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_187'>1</a>
+<span>
+1. decrementRoundsToMiss : Replaced integer subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            roundsToMiss--;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_188'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_189'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_190'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_191'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_192'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that gets the owned properties.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_193'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return owned properties.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_194'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_195'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public List&#60;Property&#62; getOwnedProperties() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_196'/>
+196
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_196'>1</a>
+<span>
+1. getOwnedProperties : replaced return value with Collections.emptyList for com/cm6123/monopoly/players/Player::getOwnedProperties &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return ownedProperties;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_197'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_198'/>
+198
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_198'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_199'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_200'/>
+200
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_200'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_201'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that calculates the total rental income from all properties owned by the player.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_202'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param theOwnedProperties</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_203'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @return The total rental income.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_204'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_205'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public BigDecimal getTotalRentalIncome(final List&#60;Property&#62; theOwnedProperties) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_206'/>
+206
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_206'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        BigDecimal totalRent = BigDecimal.valueOf(0.00).setScale(2, RoundingMode.HALF_UP);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_207'/>
+207
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_207'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_208'/>
+208
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_208'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        for (Property property : ownedProperties) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_209'/>
+209
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_209'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            totalRent = totalRent.add(property.getCharge().multiply(BigDecimal.valueOf(0.1).setScale(2, RoundingMode.HALF_UP)));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_210'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_211'/>
+211
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_211'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_212'/>
+212
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_212'>1</a>
+<span>
+1. getTotalRentalIncome : replaced return value with null for com/cm6123/monopoly/players/Player::getTotalRentalIncome &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return totalRent.setScale(2, RoundingMode.HALF_UP);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_213'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_214'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    /**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_215'/>
+215
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_215'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * A method that gets the cheapest property a player ownes and then</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_216'/>
+216
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_216'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * halves the price and removes the property from the players list of properties.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_217'/>
+217
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_217'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     * @param amount (this is the rent cost)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_218'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>     */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_219'/>
+219
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_219'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void sellPropertiesToCoverDebt(final BigDecimal amount) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_220'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        // while the balance is less than amount (rent)  AND owned properties list is not empty</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_221'/>
+221
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_221'>3</a>
+<span>
+1. sellPropertiesToCoverDebt : changed conditional boundary &rarr; SURVIVED<br/>
+2. sellPropertiesToCoverDebt : negated conditional &rarr; KILLED<br/>
+3. sellPropertiesToCoverDebt : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        while (balance.compareTo(amount) &#60; 0 &#38;&#38; !ownedProperties.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_222'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // find the property with the lowest purchase price</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_223'/>
+223
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_223'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            Property cheapestProperty = ownedProperties.get(0);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_224'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            for (Property prop : ownedProperties) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_225'/>
+225
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_225'>2</a>
+<span>
+1. sellPropertiesToCoverDebt : changed conditional boundary &rarr; SURVIVED<br/>
+2. sellPropertiesToCoverDebt : negated conditional &rarr; KILLED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                if (prop.getCharge().compareTo(cheapestProperty.getCharge()) &#60; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_226'/>
+226
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_226'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    cheapestProperty = prop;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_227'/>
+227
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_227'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_228'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_229'/>
+229
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_229'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_230'/>
+230
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_230'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // sell it for 50% of its purchase price</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_231'/>
+231
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_231'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            BigDecimal salePrice = cheapestProperty.getCharge().multiply(BigDecimal.valueOf(0.5)).setScale(2, RoundingMode.HALF_UP);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_232'/>
+232
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_232'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            balance = balance.add(salePrice);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_233'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // removing that property from their owned porperties list</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_234'/>
+234
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_234'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>            ownedProperties.remove(cheapestProperty);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_235'/>
+235
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_235'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_236'/>
+236
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_236'>1</a>
+<span>
+1. sellPropertiesToCoverDebt : removed call to java/io/PrintStream::println &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            System.out.println(&#34;Player &#34; + playerId + &#34; sold their property &#34; + cheapestProperty.getName()</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_237'/>
+237
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_237'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    + &#34; for &#163;&#34; + salePrice + &#34; (50% of &#163;&#34; + cheapestProperty.getCharge() + &#34;)&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_238'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_239'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_240'/>
+240
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_240'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_241'/>
+241
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_241'>2</a>
+<span>
+1. sellPropertiesToCoverDebt : negated conditional &rarr; SURVIVED<br/>
+2. sellPropertiesToCoverDebt : changed conditional boundary &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (balance.compareTo(amount) &#60; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_242'/>
+242
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_242'>1</a>
+<span>
+1. sellPropertiesToCoverDebt : removed call to java/io/PrintStream::println &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            System.out.println(&#34;Player &#34; + playerId + &#34; still cannot afford the debt and may go bankrupt.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_243'/>
+243
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_243'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_244'/>
+244
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_244'>1</a>
+<span>
+1. sellPropertiesToCoverDebt : removed call to java/io/PrintStream::println &rarr; SURVIVED<br/>
+
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            System.out.println(&#34;Player &#34; + playerId + &#34; now has enough balance to cover the debt.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_245'/>
+245
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_245'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_246'/>
+246
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_246'></a>
+<span>
+</span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@127d7908_247'/>
+247
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_247'></a>
+<span>
+</span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_74'>74</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_74'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPlayerId<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testGetPlayerId()]</span></span> replaced Integer return value with 0 for com/cm6123/monopoly/players/Player::getPlayerId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isBankrupt<br/><b>Killed by : </b>com.cm6123.monopoly.s6bankruptcy.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.CongestionManagerTests]/[method:testProcessSpaceForPlayer_PlayerCanAffordCharge()]</span></span> replaced boolean return with true for com/cm6123/monopoly/players/Player::isBankrupt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isBankrupt<br/><b>Killed by : </b>com.cm6123.monopoly.s6bankruptcy.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.CongestionManagerTests]/[method:testProcessSpaceForPlayer_PlayerCannotAffordAndGoesBankrupt()]</span></span> replaced boolean return with false for com/cm6123/monopoly/players/Player::isBankrupt &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_99'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getPosition<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndGetPosition()]</span></span> replaced Integer return value with 0 for com/cm6123/monopoly/players/Player::getPosition &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_117'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBalance<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndGetBalance()]</span></span> replaced return value with null for com/cm6123/monopoly/players/Player::getBalance &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_144'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLastRoll<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndGetLastRoll()]</span></span> replaced Integer return value with 0 for com/cm6123/monopoly/players/Player::getLastRoll &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_153'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>hasPassedPosition1<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndHasPassedPosition1()]</span></span> replaced boolean return with false for com/cm6123/monopoly/players/Player::hasPassedPosition1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>hasPassedPosition1<br/><b>Killed by : </b>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndHasPassedPosition1()]</span></span> replaced boolean return with true for com/cm6123/monopoly/players/Player::hasPassedPosition1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_170'>170</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_170'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getRoundsToMiss<br/><b>Killed by : </b>com.cm6123.monopoly.s2congestion.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.PlayerTests]/[method:testSetAndGetRoundsToMiss()]</span></span> replaced int return with 0 for com/cm6123/monopoly/players/Player::getRoundsToMiss &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_186'>186</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_186'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decrementRoundsToMiss<br/><b>Killed by : </b>com.cm6123.monopoly.s2congestion.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.PlayerTests]/[method:testDecrementRoundsToMiss()]</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decrementRoundsToMiss<br/><b>Killed by : </b>com.cm6123.monopoly.s2congestion.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.PlayerTests]/[method:testDecrementRoundsToMiss()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_187'>187</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_187'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decrementRoundsToMiss<br/><b>Killed by : </b>com.cm6123.monopoly.s2congestion.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.PlayerTests]/[method:testDecrementRoundsToMiss()]</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_196'>196</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_196'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getOwnedProperties<br/><b>Killed by : </b>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testPlayerHasNoProperties()]</span></span> replaced return value with Collections.emptyList for com/cm6123/monopoly/players/Player::getOwnedProperties &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_212'>212</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_212'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getTotalRentalIncome<br/><b>Killed by : </b>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#1]</span></span> replaced return value with null for com/cm6123/monopoly/players/Player::getTotalRentalIncome &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_221'>221</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_221'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testPlayerHasEnoughBalanceAlready()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testPlayerHasNoProperties()]</span></span> negated conditional &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_225'>225</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_225'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testCheapestPropertyIsSoldFirst()]</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_236'>236</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_236'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>none</span></span> removed call to java/io/PrintStream::println &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_241'>241</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_241'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_242'>242</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_242'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>none</span></span> removed call to java/io/PrintStream::println &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@127d7908_244'>244</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@127d7908_244'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sellPropertiesToCoverDebt<br/><b>Killed by : </b>none</span></span> removed call to java/io/PrintStream::println &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>CONDITIONALS_BOUNDARY</li>
+<li class='mutator'>EMPTY_RETURNS</li>
+<li class='mutator'>FALSE_RETURNS</li>
+<li class='mutator'>INCREMENTS</li>
+<li class='mutator'>INVERT_NEGS</li>
+<li class='mutator'>MATH</li>
+<li class='mutator'>NEGATE_CONDITIONALS</li>
+<li class='mutator'>NULL_RETURNS</li>
+<li class='mutator'>PRIMITIVE_RETURNS</li>
+<li class='mutator'>TRUE_RETURNS</li>
+<li class='mutator'>VOID_METHOD_CALLS</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[method:testCongestionChargeMoveIntoButStayOutOfCongestionZone()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#10] (2 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#7] (4 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#1] (1 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#2] (2 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#1] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#3] (4 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#9] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#9] (0 ms)</li><li>com.cm6123.monopoly.s4purchase.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s4purchase.PropertyManagerTests]/[method:testProcessSpaceForPlayerPlayerCannotAffordProperty()] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.PlayerTests]/[method:testSetAndGetRoundsToMiss()] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests]/[method:testProcessSpaceForPlayerMethodPlayerBankruptAfterSellingAllProperties()] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#8] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.CongestionManagerTests]/[method:testProcessSpaceForPlayer_PlayerCanAffordCharge()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#8] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[method:testCongestionChargeMoveIntoAndStayInCongestionZone()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testCurrentRoundUpdatesAfterPlayersTurn(int, int, int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndGetLastRoll()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndGetPosition()] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testPlayerHasEnoughBalanceAlready()] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#8] (4 ms)</li><li>com.cm6123.monopoly.s5rental.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s5rental.PropertyManagerTests]/[method:testProcessSpaceForPlayerPaysRentToOwner()] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#4] (3 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#1] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#8] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethodWithOnlyOneActivePlayer(int, int, boolean)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#8] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.CongestionManagerTests]/[method:testProcessSpaceForPlayer_PlayerCannotAffordAndGoesBankrupt()] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testSellPropertiesStillNotEnoughAfterSellingThreeProperties()] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#11] (0 ms)</li><li>com.cm6123.monopoly.s4purchase.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s4purchase.PropertyManagerTests]/[method:testProcessSpaceForPlayerDoesBuyProperty()] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#11] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[method:testCongestionChargeNeverInCongestionZone()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#9] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testCurrentRoundUpdatesAfterPlayersTurn(int, int, int)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testGetPlayerId()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndHasPassedPosition1()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#1] (3 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testSellPropertiesToCoverDebtSellingTwoProperties()] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.PlayerTests]/[method:testRoundsToMissInitialValue()] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testCheapestPropertyIsSoldFirst()] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#9] (2 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#4] (1 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests]/[method:testProcessSpaceForPlayerMethodPlayerSellsTwoPropertiesToPayRent()] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayerTests]/[method:testSetAndGetBalance()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#5] (2 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethodWithOnlyOneActivePlayer(int, int, boolean)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#10] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#9] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#1] (1 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#10] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.PlayerTests]/[method:testDecrementRoundsToMiss()] (0 ms)</li><li>com.cm6123.monopoly.s3court.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.GameControllerTests]/[method:testCourtFreezePlayerStaysInSamePositionForTwoRounds()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s5rental.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s5rental.GameControllerTests]/[method:test200BonusPlus1PercentRentalPriceOfAllPropertiesOwn()] (12 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s4purchase.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s4purchase.PropertyManagerTests]/[method:testProcessSpaceForPlayerDoesntBuyProperty()] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#6] (3 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.GameControllerTests]/[test-template:testCongestionChargePlayerStartsAt1(int, int, java.math.BigDecimal, java.math.BigDecimal, int)]/[test-template-invocation:#3] (1 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#2] (11 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPlayerInitialisation(int)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[method:testBankruptPlayerDoesNotMove()] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s2congestion.CongestionManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s2congestion.CongestionManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#8] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#11] (1 ms)</li><li>com.cm6123.monopoly.s3court.CourtManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s3court.CourtManagerTests]/[test-template:testProcessSpaceForPlayer_withVariousRolls(int)]/[test-template-invocation:#4] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#5] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#9] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#6] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testCurrentRoundUpdatesAfterPlayersTurn(int, int, int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PlayerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PlayerTests]/[method:testPlayerHasNoProperties()] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#7] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testPlayerGetsMoneyOnlyWhenPassingGo(int, int, java.math.BigDecimal, int, java.math.BigDecimal)]/[test-template-invocation:#1] (22 ms)</li><li>com.cm6123.monopoly.s1navigation.PlayersTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.PlayersTests]/[test-template:testPrintPlayers(int)]/[test-template-invocation:#3] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.GameControllerTests]/[test-template:testShouldGameContinueMethod(int, int, boolean)]/[test-template-invocation:#2] (0 ms)</li><li>com.cm6123.monopoly.s1navigation.GameControllerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s1navigation.GameControllerTests]/[test-template:testInitialPlayerPosition2to10Players(int)]/[test-template-invocation:#1] (0 ms)</li><li>com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests.[engine:junit-jupiter]/[class:com.cm6123.monopoly.s6bankruptcy.PropertyManagerTests]/[method:testProcessSpaceForPlayerMethodPlayerSellsPropertyAndPaysRent()] (0 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='https://pitest.org'>PIT</a> 1.14.4
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cm6123.monopoly.s2congestion.BoardTests" tests="9" skipped="0" failures="0" errors="0" timestamp="2025-05-01T13:32:05" hostname="Elas-MacBook-Air-5.local" time="0.017">
+  <properties/>
+  <testcase name="[1] 10, 5" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.002"/>
+  <testcase name="[2] 15, 5" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.001"/>
+  <testcase name="[3] 30, 5" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.0"/>
+  <testcase name="[4] 31, 9" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.001"/>
+  <testcase name="[5] 40, 9" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.0"/>
+  <testcase name="[6] 50, 9" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.001"/>
+  <testcase name="testPrintBoardWithSize16()" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.003"/>
+  <testcase name="testFindMiddleOfBoardOdd()" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.001"/>
+  <testcase name="testFindMiddleOfBoardEven()" classname="com.cm6123.monopoly.s2congestion.BoardTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

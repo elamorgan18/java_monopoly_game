@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cm6123.monopoly.DiceTests" tests="18" skipped="0" failures="0" errors="0" timestamp="2025-05-01T13:32:02" hostname="Elas-MacBook-Air-5.local" time="0.063">
+  <properties/>
+  <testcase name="[1] 4" classname="com.cm6123.monopoly.DiceTests" time="0.03"/>
+  <testcase name="[2] 6" classname="com.cm6123.monopoly.DiceTests" time="0.002"/>
+  <testcase name="[3] 8" classname="com.cm6123.monopoly.DiceTests" time="0.0"/>
+  <testcase name="[4] 10" classname="com.cm6123.monopoly.DiceTests" time="0.001"/>
+  <testcase name="[5] 12" classname="com.cm6123.monopoly.DiceTests" time="0.0"/>
+  <testcase name="rollOnce()" classname="com.cm6123.monopoly.DiceTests" time="0.001"/>
+  <testcase name="[1] 4" classname="com.cm6123.monopoly.DiceTests" time="0.003"/>
+  <testcase name="[2] 6" classname="com.cm6123.monopoly.DiceTests" time="0.001"/>
+  <testcase name="[3] 7" classname="com.cm6123.monopoly.DiceTests" time="0.0"/>
+  <testcase name="[4] 8" classname="com.cm6123.monopoly.DiceTests" time="0.0"/>
+  <testcase name="[5] 10" classname="com.cm6123.monopoly.DiceTests" time="0.001"/>
+  <testcase name="[6] 12" classname="com.cm6123.monopoly.DiceTests" time="0.001"/>
+  <testcase name="[7] 15" classname="com.cm6123.monopoly.DiceTests" time="0.001"/>
+  <testcase name="[1] 4" classname="com.cm6123.monopoly.DiceTests" time="0.0"/>
+  <testcase name="[2] 6" classname="com.cm6123.monopoly.DiceTests" time="0.0"/>
+  <testcase name="[3] 8" classname="com.cm6123.monopoly.DiceTests" time="0.0"/>
+  <testcase name="[4] 10" classname="com.cm6123.monopoly.DiceTests" time="0.001"/>
+  <testcase name="[5] 12" classname="com.cm6123.monopoly.DiceTests" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

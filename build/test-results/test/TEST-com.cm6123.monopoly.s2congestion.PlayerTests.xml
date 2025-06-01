@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cm6123.monopoly.s2congestion.PlayerTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-05-01T13:32:05" hostname="Elas-MacBook-Air-5.local" time="0.0">
+  <properties/>
+  <testcase name="testRoundsToMissInitialValue()" classname="com.cm6123.monopoly.s2congestion.PlayerTests" time="0.0"/>
+  <testcase name="testDecrementRoundsToMiss()" classname="com.cm6123.monopoly.s2congestion.PlayerTests" time="0.0"/>
+  <testcase name="testSetAndGetRoundsToMiss()" classname="com.cm6123.monopoly.s2congestion.PlayerTests" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

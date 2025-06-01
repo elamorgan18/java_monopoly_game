@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PlayerValidator.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.players</a> &gt; <span class="el_source">PlayerValidator.java</span></div><h1>PlayerValidator.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.players;
+
+import com.cm6123.monopoly.validator.InputValidator;
+
+/**
+ * A class that validates the number of players inputted.
+ */
+<span class="fc" id="L8">public class PlayerValidator implements InputValidator {</span>
+
+    /**
+     * A method to check the number of players is an integer and is between 2 and 10.
+     *
+     * @param numberOfPlayers - The number of players the user wants to play with.
+     * @return a boolean to see if number is valid
+     */
+    public boolean validate(final String numberOfPlayers) {
+
+<span class="fc" id="L18">        boolean isValid = false;</span>
+<span class="fc" id="L19">        int playerCount = 0;</span>
+
+        // Converting the input to an int.
+        try {
+<span class="fc bfc" id="L23" title="All 2 branches covered.">            if (numberOfPlayers != null) {</span>
+<span class="fc" id="L24">                playerCount = Integer.parseInt(numberOfPlayers.trim());</span>
+<span class="fc" id="L25">                isValid = true;</span>
+            }
+<span class="fc" id="L27">        } catch (NumberFormatException e) {</span>
+<span class="fc" id="L28">            System.out.println(&quot;Number of players must be an integer. Please try again.&quot;);</span>
+<span class="fc" id="L29">            isValid = false;</span>
+<span class="fc" id="L30">        }</span>
+
+        // Checking if the input is between 2 and 10.
+<span class="fc bfc" id="L33" title="All 2 branches covered.">        if (isValid) {</span>
+<span class="fc bfc" id="L34" title="All 4 branches covered.">            if (playerCount &lt; 2 || playerCount &gt; 10) {</span>
+<span class="fc" id="L35">                isValid = false;</span>
+<span class="fc" id="L36">                System.out.println(&quot;Number of players must be between 2 and 10. Please try again.&quot;);</span>
+            }
+        }
+<span class="fc" id="L39">        return isValid;</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

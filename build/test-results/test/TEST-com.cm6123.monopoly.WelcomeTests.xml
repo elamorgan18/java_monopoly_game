@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cm6123.monopoly.WelcomeTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-05-01T13:32:03" hostname="Elas-MacBook-Air-5.local" time="1.802">
+  <properties/>
+  <testcase name="testWelcomeMessageInTheMorning()" classname="com.cm6123.monopoly.WelcomeTests" time="1.796"/>
+  <testcase name="testWelcomeMessageInTheAfternoon()" classname="com.cm6123.monopoly.WelcomeTests" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

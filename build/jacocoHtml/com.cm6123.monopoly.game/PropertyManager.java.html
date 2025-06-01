@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PropertyManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.game</a> &gt; <span class="el_source">PropertyManager.java</span></div><h1>PropertyManager.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.game;
+
+import com.cm6123.monopoly.players.Player;
+import com.cm6123.monopoly.players.Players;
+import com.cm6123.monopoly.spaces.Property;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.Scanner;
+
+<span class="fc" id="L11">public class PropertyManager {</span>
+    /**
+     * A class for property space to be managed by the player.
+     *
+     * @param player the current player
+     * @param property the porperty they landed on.
+     * @param players the players
+     */
+    public void processSpaceForPlayer(final Player player, final Property property, final Players players) {
+<span class="fc" id="L20">        BigDecimal rent = BigDecimal.valueOf(0.00).setScale(2, RoundingMode.HALF_UP);</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        if (!property.isOwned()) {</span>
+            // check to see if player has enough money to buy property.
+<span class="fc" id="L23">            boolean validInput = false;</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            if (player.getBalance().compareTo(property.getCharge()) &gt; 0) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">                while (!validInput) {</span>
+
+                    // ask if they want to buy it
+<span class="fc" id="L28">                    Scanner scanner = new Scanner(System.in);</span>
+<span class="fc" id="L29">                    System.out.println(&quot;Player &quot; + player.getPlayerId() + &quot; has landed on &quot; + property.getName()</span>
+<span class="fc" id="L30">                            + &quot;. Would you like to buy this property for £&quot; + property.getCharge() + &quot;? (Y/N)&quot;);</span>
+<span class="fc" id="L31">                    String buyOrNot = scanner.nextLine().trim().toUpperCase();</span>
+
+<span class="fc bfc" id="L33" title="All 2 branches covered.">                    if (buyOrNot.equals(&quot;Y&quot;)) {</span>
+                        // if they want to buy, we set owned to true, owned by the player,
+                        // charge the player the cost of the property.
+<span class="fc" id="L36">                        property.setOwned(true);</span>
+<span class="fc" id="L37">                        property.setOwner(player);</span>
+<span class="fc" id="L38">                        player.getOwnedProperties().add(property);</span>
+<span class="fc" id="L39">                        player.setBalance(player.getBalance().subtract(property.getCharge()));</span>
+<span class="fc" id="L40">                        validInput = true;</span>
+
+<span class="pc bpc" id="L42" title="1 of 2 branches missed.">                    } else if (buyOrNot.equals(&quot;N&quot;)) {</span>
+                        // we do not need ot do anything here.
+<span class="fc" id="L44">                        System.out.println(&quot;Ok&quot;);</span>
+<span class="fc" id="L45">                        validInput = true;</span>
+                    } else {
+<span class="nc" id="L47">                        System.out.println(&quot;Invalid input. Please try again.&quot;);</span>
+<span class="nc" id="L48">                        validInput = false;</span>
+                    }
+<span class="fc" id="L50">                }</span>
+            } else {
+<span class="fc" id="L52">                System.out.println(&quot;Player &quot; + player.getPlayerId() + &quot; doesn't have enough money to buy this property.&quot;);</span>
+            }
+            // else the property is owned by someone so the player must pay rent
+<span class="fc" id="L55">        } else {</span>
+<span class="fc" id="L56">            rent = (property.getCharge().multiply(BigDecimal.valueOf(0.1)).setScale(2, RoundingMode.HALF_UP));</span>
+
+
+            //  player does not have enough money to pay the rent
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            if (player.getBalance().compareTo(rent) &lt; 0) {</span>
+
+<span class="fc" id="L62">                System.out.println(&quot;Player &quot; + player.getPlayerId() + &quot; landed on &quot; + property.getName() + &quot; and cannot afford rent of £&quot; + rent);</span>
+
+                // player must sell properties to cover the debt
+<span class="fc" id="L65">                player.sellPropertiesToCoverDebt(rent);</span>
+
+                // check again if player has enough money after selling
+<span class="fc bfc" id="L68" title="All 2 branches covered.">                if (player.getBalance().compareTo(rent) &lt; 0) {</span>
+<span class="fc" id="L69">                    BigDecimal remainingBalance = player.getBalance();</span>
+<span class="fc" id="L70">                    int propertyOwnerId = property.getOwner().getPlayerId();</span>
+<span class="fc" id="L71">                    Player owningPlayer = players.getPlayerList().get(propertyOwnerId - 1);</span>
+<span class="fc" id="L72">                    owningPlayer.setBalance(owningPlayer.getBalance().add(remainingBalance));</span>
+
+                    // set player to bankrupt!
+<span class="fc" id="L75">                    player.setBankrupt(true);</span>
+<span class="fc" id="L76">                    System.out.println(&quot;Player &quot; + player.getPlayerId() + &quot; is bankrupt! Out of the game&quot;);</span>
+
+<span class="fc" id="L78">                } else {</span>
+                    // pay rent after selling their cheapest property for 50% of the charge.
+<span class="fc" id="L80">                    player.setBalance(player.getBalance().subtract(rent));</span>
+<span class="fc" id="L81">                    int propertyOwnerId = property.getOwner().getPlayerId();</span>
+<span class="fc" id="L82">                    Player owningPlayer = players.getPlayerList().get(propertyOwnerId - 1);</span>
+<span class="fc" id="L83">                    owningPlayer.setBalance(owningPlayer.getBalance().add(rent));</span>
+<span class="fc" id="L84">                    System.out.println(&quot;Rent of £&quot; + rent + &quot; paid to Player &quot; + propertyOwnerId + &quot; after selling properties.&quot;);</span>
+<span class="fc" id="L85">                }</span>
+
+                // player has enough money to pay rent - no need to sell
+            } else {
+<span class="fc" id="L89">                player.setBalance(player.getBalance().subtract(rent));</span>
+<span class="fc" id="L90">                int propertyOwnerId = property.getOwner().getPlayerId();</span>
+<span class="fc" id="L91">                Player owningPlayer = players.getPlayerList().get(propertyOwnerId - 1);</span>
+<span class="fc" id="L92">                owningPlayer.setBalance(owningPlayer.getBalance().add(rent));</span>
+<span class="fc" id="L93">                System.out.println(&quot;Player &quot; + property.getOwner().getPlayerId() + &quot; ownes &quot;</span>
+<span class="fc" id="L94">                        + property.getName() + &quot;. Player &quot; + player.getPlayerId() + &quot; must pay rent of £&quot; + rent);</span>
+            }
+        }
+<span class="fc" id="L97">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

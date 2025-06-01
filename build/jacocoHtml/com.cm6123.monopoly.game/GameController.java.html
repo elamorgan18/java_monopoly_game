@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">assessment-2025-starter-monopoly</a> &gt; <a href="index.source.html" class="el_package">com.cm6123.monopoly.game</a> &gt; <span class="el_source">GameController.java</span></div><h1>GameController.java</h1><pre class="source lang-java linenums">package com.cm6123.monopoly.game;
+
+import com.cm6123.monopoly.board.Board;
+import com.cm6123.monopoly.dice.DiceSet;
+import com.cm6123.monopoly.players.Player;
+import com.cm6123.monopoly.players.Players;
+import com.cm6123.monopoly.rounds.Rounds;
+import com.cm6123.monopoly.spaces.Property;
+import com.cm6123.monopoly.spaces.Space;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.List;
+
+
+/**
+ * A class to control the monopoly game.
+ */
+public class GameController {
+    /**
+     * An instance for the Logger.
+     */
+<span class="fc" id="L26">    private static final Logger LOGGER = LoggerFactory.getLogger(GameController.class);</span>
+    /**
+     * An instance variable to store the players.
+     */
+    private final Players players;
+
+    /**
+     * A method that gets the players.
+     * @return players.
+     */
+    public Players getPlayers() {
+<span class="nc" id="L37">        return players;</span>
+    }
+    /**
+     * An instance variable to store the board.
+     */
+    private final Board board;
+    /**
+     * An instance variable to store the dice set.
+     */
+    private final DiceSet diceSet;
+    /**
+     * An instance variable to store the rounds.
+     */
+    private final Rounds rounds;
+    /**
+     * The round that the players are currently playing in.
+     */
+    private int currentRound;
+    /**
+     * An instance for the Space Manager class.
+     */
+    private final SpaceManager spaceManager;
+
+    /**
+     * A constructor for the game controller.
+     * @param thePlayers the players we want to pass in.
+     * @param theBoard the board we want to pass in.
+     * @param theMaxRounds the maximum number of rounds in the game.
+     * @param theCurrentRound the current round.
+     * @param theDiceSet the dice set value we pass in.
+     * @param theSpaceManager the space manager.
+     */
+    public GameController(final Players thePlayers, final Board theBoard, final Rounds theMaxRounds,
+<span class="fc" id="L70">                          final int theCurrentRound, final DiceSet theDiceSet, final SpaceManager theSpaceManager) {</span>
+<span class="fc" id="L71">        this.board = theBoard;</span>
+<span class="fc" id="L72">        this.players = thePlayers;</span>
+<span class="fc" id="L73">        this.diceSet = theDiceSet;</span>
+<span class="fc" id="L74">        this.rounds = theMaxRounds;</span>
+<span class="fc" id="L75">        this.currentRound = theCurrentRound;</span>
+<span class="fc" id="L76">        this.spaceManager = theSpaceManager;</span>
+<span class="fc" id="L77">    }</span>
+
+    /**
+     * A method that makes a player move on the board.
+     */
+    public void makeRoundOfMoves() {
+        // loop through all the players in the list
+<span class="fc bfc" id="L84" title="All 2 branches covered.">        for (Player currentPlayer : players.getPlayerList()) {</span>
+<span class="fc bfc" id="L85" title="All 2 branches covered.">            if (currentPlayer.isBankrupt()){</span>
+<span class="fc" id="L86">                System.out.println(&quot;Player &quot; + currentPlayer.getPlayerId() + &quot; is bankrupt! You're out!&quot;);</span>
+<span class="fc" id="L87">                continue;</span>
+            }
+            // checking to see if a player needs to miss a turn
+<span class="fc bfc" id="L90" title="All 2 branches covered.">            if (currentPlayer.getRoundsToMiss() &gt; 0) {</span>
+<span class="fc" id="L91">                currentPlayer.decrementRoundsToMiss();</span>
+<span class="fc" id="L92">                System.out.println(&quot;Player &quot; + currentPlayer.getPlayerId() + &quot; FROZEN&quot;);</span>
+<span class="fc" id="L93">                continue;</span>
+            }
+            // roll the dice
+<span class="fc" id="L96">            int totalRoll = diceSet.addTogether();</span>
+
+            // get the current player from the players list and their position.
+<span class="fc" id="L99">            int originalPosition = currentPlayer.getPosition();</span>
+<span class="fc" id="L100">            int newPosition = getNewPosition(currentPlayer, totalRoll);</span>
+
+<span class="fc" id="L102">            currentPlayer.setPosition(newPosition);</span>
+<span class="fc" id="L103">            currentPlayer.setLastRoll(totalRoll);</span>
+
+<span class="fc" id="L105">            applyChargeOrBonusToPlayer(currentPlayer, originalPosition, totalRoll);</span>
+<span class="fc" id="L106">        }</span>
+<span class="fc" id="L107">        currentRound++;</span>
+<span class="fc" id="L108">    }</span>
+
+    /**
+     * A method that returns the current round the game is on.
+     * @return an int of the current round the game is on.
+     */
+    public int getCurrentRound() {
+<span class="fc" id="L115">        return currentRound;</span>
+    }
+
+    /**
+     * A method that gets the new player position.
+     * @param currentPlayer the current player that is playing the game.
+     * @param value the value that the player has rolled.
+     * @return the new position of the player.
+     */
+    private int getNewPosition(final Player currentPlayer, final int value) {
+<span class="fc" id="L125">        int currentPosition = currentPlayer.getPosition();</span>
+
+        // update players position on the board.
+<span class="fc" id="L128">        int newPosition = currentPlayer.getPosition() + value;</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        if (newPosition &gt; board.getBoardSize()) {</span>
+<span class="fc" id="L130">            newPosition = newPosition - board.getBoardSize();</span>
+        }
+
+<span class="fc" id="L133">        return newPosition;</span>
+    }
+
+    /**
+     * A method that determines if the player has landed on a space that gives a charge or bonus.
+     * I get the players position and compare it to the space type.
+     * @param player the current player.
+     * @param originalPosition the original player position.
+     * @param totalRoll the total roll value.
+     */
+    public void applyChargeOrBonusToPlayer(final Player player, final int originalPosition, final int totalRoll) {
+
+        // Has player passed the start? If so add £200 plus
+<span class="fc" id="L146">        int total = originalPosition + totalRoll;</span>
+<span class="fc bfc" id="L147" title="All 2 branches covered.">        if (total &gt; board.getBoardSize()) {</span>
+<span class="fc" id="L148">            BigDecimal rentalFactor = BigDecimal.valueOf(0.01).setScale(2, RoundingMode.HALF_UP);</span>
+<span class="fc" id="L149">            BigDecimal rentalIncomeOfOwnedProperties = player.getTotalRentalIncome(player.getOwnedProperties()).setScale(2, RoundingMode.HALF_UP);</span>
+
+<span class="fc" id="L151">            BigDecimal playerTotalRentalPercentage = rentalIncomeOfOwnedProperties.multiply(rentalFactor).setScale(2, RoundingMode.HALF_UP);</span>
+<span class="fc" id="L152">            BigDecimal newBalance = player.getBalance().add(BigDecimal.valueOf(200.00).setScale(2, RoundingMode.HALF_UP));</span>
+<span class="fc" id="L153">            BigDecimal newBalancePlusRent = newBalance.add(playerTotalRentalPercentage).setScale(2, RoundingMode.HALF_UP);</span>
+<span class="fc" id="L154">            player.setBalance(newBalancePlusRent.setScale(2, RoundingMode.HALF_UP));</span>
+
+<span class="fc" id="L156">            System.out.println(&quot;Player &quot; + player.getPlayerId()</span>
+                    + &quot; passed GO! Bonus £200 and 1% of total rental cost of your properties: £&quot;
+<span class="fc" id="L158">                    + playerTotalRentalPercentage.setScale(2, RoundingMode.HALF_UP));</span>
+
+        }
+
+        // Get the space the player is on
+<span class="fc" id="L163">        int thePlayersPosition = player.getPosition();</span>
+<span class="fc" id="L164">        List&lt;Space&gt; spaces = board.getSpaces();</span>
+<span class="fc" id="L165">        Space currentSpace = spaces.get(thePlayersPosition - 1); // spaces is zero based.</span>
+
+<span class="fc" id="L167">        spaceManager.handlePlayerOnSpace(currentSpace, player, players);</span>
+<span class="fc" id="L168">    }</span>
+
+    /**
+     * A method that determines if the game should continue.
+     * @return a boolean that says if the game should continue.
+     */
+    public boolean shouldGameContinue(){
+<span class="fc bfc" id="L175" title="All 2 branches covered.">        if (currentRound &gt; rounds.getNumberOfRounds()) {</span>
+<span class="fc" id="L176">            return false;</span>
+        }
+
+        // Count players who are not bankrupt
+<span class="fc" id="L180">        int activePlayers = 0;</span>
+<span class="fc bfc" id="L181" title="All 2 branches covered.">        for (Player player : players.getPlayerList()) {</span>
+<span class="fc bfc" id="L182" title="All 2 branches covered.">            if (!player.isBankrupt()) {</span>
+<span class="fc" id="L183">                activePlayers++;</span>
+            }
+<span class="fc" id="L185">        }</span>
+<span class="fc" id="L186">        boolean moreThanOneActivePlayer = false;</span>
+
+<span class="fc bfc" id="L188" title="All 2 branches covered.">        if (activePlayers &gt; 1) {</span>
+<span class="fc" id="L189">            moreThanOneActivePlayer = true;</span>
+        }
+<span class="fc" id="L191">        return moreThanOneActivePlayer;</span>
+    }
+
+    /**
+     * A method that determines who the winner is or if it's a draw.
+     * The winner is whoever has the highest balance plus all their property purchase charges.
+     * @return details of the player/players that won.
+     */
+
+    public String getWinner() {
+<span class="fc" id="L201">        List&lt;Player&gt; playerList = players.getPlayerList();</span>
+<span class="fc" id="L202">        List&lt;Player&gt; winners = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L203">        BigDecimal highestTotalWealth = BigDecimal.valueOf(-99999.99);</span>
+
+<span class="fc bfc" id="L205" title="All 2 branches covered.">        for (Player player : playerList) {</span>
+<span class="fc" id="L206">            BigDecimal totalWealth = player.getBalance();</span>
+
+            // add the value of all owned properties
+<span class="pc bpc" id="L209" title="1 of 2 branches missed.">            for (Property property : player.getOwnedProperties()) {</span>
+<span class="nc" id="L210">                totalWealth = totalWealth.add(property.getCharge());</span>
+<span class="nc" id="L211">            }</span>
+
+            // determine if this player has the highest wealth
+<span class="fc bfc" id="L214" title="All 2 branches covered.">            if (totalWealth.compareTo(highestTotalWealth) &gt; 0) {</span>
+<span class="fc" id="L215">                highestTotalWealth = totalWealth;</span>
+<span class="fc" id="L216">                winners.clear();</span>
+<span class="fc" id="L217">                winners.add(player);</span>
+<span class="fc bfc" id="L218" title="All 2 branches covered.">            } else if (totalWealth.compareTo(highestTotalWealth) == 0) {</span>
+<span class="fc" id="L219">                winners.add(player);</span>
+            }
+<span class="fc" id="L221">        }</span>
+<span class="fc bfc" id="L222" title="All 2 branches covered.">        if (winners.size() &gt; 1) {</span>
+<span class="fc" id="L223">            StringBuilder result = new StringBuilder(&quot;\nIt's a draw between: &quot;);</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">            for (int i = 0; i &lt; winners.size(); i++) {</span>
+<span class="fc" id="L225">                result.append(&quot;Player &quot;).append(winners.get(i).getPlayerId());</span>
+<span class="fc bfc" id="L226" title="All 2 branches covered.">                if (i &lt; winners.size() - 1) {</span>
+<span class="fc" id="L227">                    result.append(&quot;, &quot;);</span>
+                }
+            }
+<span class="fc" id="L230">            result.append(&quot; with £&quot;).append(highestTotalWealth.setScale(2, RoundingMode.HALF_UP));</span>
+<span class="fc" id="L231">            return result.toString();</span>
+        } else {
+<span class="fc" id="L233">            Player winner = winners.get(0);</span>
+<span class="fc" id="L234">            return &quot;\nPlayer &quot; + winner.getPlayerId() + &quot; Won the Game with £&quot; + highestTotalWealth.setScale(2, RoundingMode.HALF_UP) + &quot;! Congratulations!&quot;;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
